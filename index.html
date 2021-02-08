@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>ex-dischi-musicali</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+      <div id="app" >
+
+        <header>
+            <div  class="container">
+                <img src="img/logo.png" alt="logo" />
+                <select v-model="selected" name='search' @change='search'>
+                  <option disabled value="">Select author</option>
+                  <option value="All">All</option>
+                  <option value="Rock">Rock</option>
+                  <option value="Pop">Pop</option>
+                  <option value="Jazz">Jazz</option>
+                  <option value="Metal">Metal</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="cds-container container">
+            <!-- Disco ad esempio -->
+            <div  class="cd" v-for='elem in playList' v-if="selected === elem.genre || elem.genre === ''">
+                <img :src="elem.poster" alt="">
+                <h3>{{elem.title}}</h3>
+                <span class="author">{{elem.author}}</span>
+                <span class="year">{{elem.years}}</span>
+            </div>
+        </div>
+      </div>
+
+
+        <script src="js/main.js" charset="utf-8"></script>
+    </body>
+</html>
