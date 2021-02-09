@@ -17,8 +17,7 @@
             <div  class="container">
                 <img src="img/logo.png" alt="logo" />
                 <select v-model="selected" name='search' @change='search'>
-                  <option disabled value="">Select author</option>
-                  <option value="All">All</option>
+                  <option value="">All</option>
                   <option value="Rock">Rock</option>
                   <option value="Pop">Pop</option>
                   <option value="Jazz">Jazz</option>
@@ -29,7 +28,7 @@
 
         <div class="cds-container container">
             <!-- Disco ad esempio -->
-            <div  class="cd" v-for='elem in playList' v-if="selected === elem.genre || elem.genre === ''">
+            <div  class="cd" v-for='elem in playList' v-if="selected === elem.genre || selected === ''">
                 <img :src="elem.poster" alt="">
                 <h3>{{elem.title}}</h3>
                 <span class="author">{{elem.author}}</span>

@@ -28,7 +28,7 @@ new Vue({
     .then(function(resp) {
        const disk = resp.data.response
       self.playList = disk;
-      console.log(self.playList);
+      console.log(disk);
     });
   }
 });
